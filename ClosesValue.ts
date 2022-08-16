@@ -2,7 +2,6 @@ class NodeTree {
   private value: any;
   private left?: NodeTree;
   private right?: NodeTree;
-
   constructor(value: any, left?: NodeTree, right?: NodeTree) {
     this.value = value;
     this.left = left;

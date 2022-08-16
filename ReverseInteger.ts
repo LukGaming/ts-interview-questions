@@ -3,10 +3,9 @@ function reverse(x: number): number {
   let currentDivision = x;
   let canDivide = true;
   let result: number[] = [];
-  
-  let max = 2e32 -1 
-  let min = (2e32 - 1) * -1
-  console.log(min, max, x);
+
+  let max = 2e32 - 1;
+  let min = (2e32 - 1) * -1;
   if (x >= max || x <= min) {
     return 0;
   }
@@ -28,4 +27,4 @@ function reverse(x: number): number {
   }
   return Number(result.join(""));
 }
-console.log(reverse(1534236469));
+console.log(reverse(123456789));

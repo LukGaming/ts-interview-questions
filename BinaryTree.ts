@@ -1,10 +1,8 @@
 class NodeTree {
-  value: any;
+  value: number;
   left?: NodeTree;
-  
   right?: NodeTree;
-
-  constructor(value: any, left?: NodeTree, right?: NodeTree) {
+  constructor(value: number, left?: NodeTree, right?: NodeTree) {
     this.value = value;
     this.left = left;
     this.right = right;
@@ -21,24 +19,27 @@ class NodeTree {
 }
 
 let firstNode = new NodeTree(
-  "a",
-  new NodeTree(
-    "b",
-    new NodeTree("d", new NodeTree("h", new NodeTree("y"),), new NodeTree("j")),
-    new NodeTree("e")
-  ),
-  new NodeTree("c", new NodeTree("f"), new NodeTree("g"))
+  1,
+  new NodeTree(2, new NodeTree(5)),
+  new NodeTree(3, new NodeTree(9,new NodeTree(13)))
 );
 
-//                  a
-//               /     \
-//              b        c
-//             /  \     / \
-//            d    e   f   g
-//           / \
-/*          h   j
+//        1  
+//      /    \
+//     2      3
+//   /       /
+// 5        9   
 //         /
-          y
+//        13
+//
+//          
+//         
+          
+
+
+
+
+/*
 //Binary Tree
     constructor
     depth transversal use stacks
@@ -75,7 +76,6 @@ class BinaryTree {
     stack.push(root);
     while (stack.length > 0) {
       var node = stack.pop();
-      console.log(node.getValue());
       if (node.getRight()) {
         stack.push(node.getRight());
       }
