@@ -9,7 +9,7 @@ class ListNode {
 
 class LinkedList {
   head = null;
-  printLinkedList(head: ListNode) {
+  printLinkedList(head: ListNode | null) {
     let current: ListNode | null = head;
     while (current != null) {
       console.log(current.val);
@@ -20,6 +20,12 @@ class LinkedList {
       }
     }
   }
+  printLinkedListRecursively(head: ListNode | null){
+    if(head == null) return
+    console.log(head.val)
+    if(head.next)this.printLinkedListRecursively(head?.next)
+    else return
+  }
 }
 
 const node1 = new ListNode(10);
@@ -28,4 +34,4 @@ const node2 = new ListNode(20);
 node1.next = node2;
 
 const linkedList = new LinkedList();
-linkedList.printLinkedList(node1);
+linkedList.printLinkedListRecursively(node1);
