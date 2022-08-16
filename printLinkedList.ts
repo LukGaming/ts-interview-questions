@@ -20,11 +20,35 @@ class LinkedList {
       }
     }
   }
-  printLinkedListRecursively(head: ListNode | null){
-    if(head == null) return
-    console.log(head.val)
-    if(head.next)this.printLinkedListRecursively(head?.next)
-    else return
+  printLinkedListRecursively(head: ListNode | null) {
+    if (head == null) return;
+    console.log(head.val);
+    if (head.next) this.printLinkedListRecursively(head?.next);
+    else return;
+  }
+  getListValues(head: ListNode | null) {
+    const values: Array<number> = [];
+    let current = head;
+    while (current) {
+      values.push(current.val);
+      if (current.next) current = current.next;
+      else current = null;
+    }
+    return values;
+  }
+  getListRecursively(head: ListNode | null) {
+    const values: Array<number> = [];
+    this.handleListRecursively(head, values);
+    return values;
+  }
+  handleListRecursively(currentNode: ListNode | null, values: Array<number>) {
+    if (currentNode == null) return;
+    values.push(currentNode.val);
+    if (currentNode.next) {
+      this.handleListRecursively(currentNode?.next, values);
+    } else {
+      return;
+    }
   }
 }
 
@@ -34,4 +58,4 @@ const node2 = new ListNode(20);
 node1.next = node2;
 
 const linkedList = new LinkedList();
-linkedList.printLinkedListRecursively(node1);
+console.log(linkedList.getListRecursively(node1));
